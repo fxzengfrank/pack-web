@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <link rel="stylesheet" type="text/css" href="{{ static_url("css/default.css") }}">
+    <title>index</title>
+</head>
+
+<body>
+    {% include "components/page1.html" %}
+    {% include "components/page2.html" %}
+    <div>
+    <h2>这里是外框架</h2>
+    </div>
+    <div id='app'>
+        <button type="button" @click="page1">page1</button>
+        <button type="button" @click="page2">page2</button>
+        <components v-bind:is="activepage" v-bind:pagedata="pagedata"></components>
+    </div>
+    <script type="text/javascript" src="{{ static_url("js/vue-2.2.5.js") }}"></script>
+    <script type="text/javascript" src="{{ static_url("js/page1.js") }}"></script>
+    <script type="text/javascript" src="{{ static_url("js/page2.js") }}"></script>
+    <script type="text/javascript" src="{{ static_url("js/default.js") }}"></script>
+</body>
+
+</html>
